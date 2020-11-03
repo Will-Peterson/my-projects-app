@@ -55,9 +55,9 @@ theme.overrides = {
     },
     MuiTooltip: {
         tooltip: {
-            backgroundColor: '#fff',
+            backgroundColor: theme.palette.primary.main,
             border: `2px solid ${theme.palette.primary.main}`,
-            color: theme.palette.primary.main
+            color: theme.palette.primary.contrastText
         },
         arrow: {
             color: theme.palette.primary.main
