@@ -1,15 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
 import ProjectList from './components/ProjectList';
 import Form from './components/Form';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 
 function App() {
   const [inputProject, setInputProject] = useState('');
   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const localStorageProjects = JSON.parse(localStorage.getItem('wp-mpa1-ekt'));
+    if (localStorageProjects) {
+      setProjects(localStorageProjects);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('wp-mpa1-ekt', JSON.stringify(projects));
+  }, [projects]);
 
   const updateProject = (id) => {
     console.log('update project CONNECTED')
@@ -32,9 +42,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Container maxWidth='md'>
-          <Grid> 
-
-          <h1 style={{ marginBottom: "100px" }}>My Projects</h1>
+          <h1 style={{ marginBottom: "100px", color: 'white' }}>My Projects</h1>
           <Form 
             inputProject={inputProject} 
             setInputProject={setInputProject} 
@@ -47,7 +55,6 @@ function App() {
             completedProject={completedProject}
             deleteProject={deleteProject}
             />
-          </Grid>
         </Container>
       </ThemeProvider>
     </>
