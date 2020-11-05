@@ -3,22 +3,24 @@ import TextField from "@material-ui/core/TextField";
 import {v4} from 'uuid';
 import IconButton from '@material-ui/core/IconButton';
 import {AiFillFileAdd} from 'react-icons/ai';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 
 const Form = ({inputProject, setInputProject, projects, setProjects}) => {
 
     const handleInputProject = (e) => {
-        setInputProject(e.target.value);
+        let input = e.target.value;
+        setInputProject(input);
     };
     
     const submitProjectInput = (e) => {
         e.preventDefault();
-        setProjects([...projects, {task: inputProject, completed: false, id: v4()}]);
+        setProjects([...projects, {task: inputProject.trim(), completed: false, id: v4()}]);
         setInputProject('');
+
     };
    
     return (
-        <Grid  direction='row' spacing={3}>
+        // <Grid direction='row' spacing={3}>
         <form noValidate autoComplete="off">
         <TextField
             label="Add Project"
@@ -28,10 +30,12 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
             value={inputProject}
             onChange={handleInputProject}
             />
-        <IconButton type='submit' onClick={submitProjectInput} ><AiFillFileAdd style={{color: 'white'}} /></IconButton>
+        <IconButton type='submit' onClick={submitProjectInput} >
+            <AiFillFileAdd style={{color: 'white'}} />
+        </IconButton>
         
         </form>
-        </Grid>
+        // </Grid>
     );
 }
 

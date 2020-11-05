@@ -32,7 +32,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Container maxWidth='md'>
-          <Grid alignContent='center' > 
+          <Grid> 
 
           <h1 style={{ marginBottom: "100px" }}>My Projects</h1>
           <Form 

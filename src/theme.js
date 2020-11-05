@@ -32,7 +32,6 @@ theme.props = {
         edge: 'end'
     },
     MuiTextField: {
-        // fullWidth: true,
         autoFocus: true
     }
 };
@@ -53,14 +52,19 @@ theme.overrides = {
             }
         }
     },
+    MuiButtonBase: {
+        root: {
+            
+        }
+    },
     MuiTooltip: {
         tooltip: {
-            backgroundColor: theme.palette.primary.main,
-            border: `2px solid ${theme.palette.primary.main}`,
+            backgroundColor: theme.palette.primary.dark,
+            border: `1px solid ${theme.palette.primary.dark}`,
             color: theme.palette.primary.contrastText
         },
         arrow: {
-            color: theme.palette.primary.main
+            color: theme.palette.primary.dark
         }
     },
     MuiIconButton: {
