@@ -1,15 +1,16 @@
 import React from 'react';
 import Project from './Project';
 
-const ProjectList = ({projects, editHandler, completedHandler, deleteHandler}) => {
+const ProjectList = ({projects, updateProject, completedProject, deleteProject}) => {
+
   return (
     <div>
       {projects.map((project) => (
         <Project 
           project={project}
-          editHandler={editHandler}
-          completedHandler={completedHandler}
-          deleteHandler={deleteHandler}
+          updateProject={updateProject}
+          completedProject={completedProject}
+          deleteProject={deleteProject}
           key={project.id}
         />
       ))}

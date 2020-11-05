@@ -32,7 +32,7 @@ theme.props = {
         edge: 'end'
     },
     MuiTextField: {
-        fullWidth: true,
+        // fullWidth: true,
         autoFocus: true
     }
 };
@@ -89,6 +89,11 @@ theme.overrides = {
             '&.Mui-focused': {
                 backgroundColor: theme.palette.primary.light
             }
+        }
+    },
+    MuiFormControl: {
+        root: {
+            width: '80%'
         }
     }
 }

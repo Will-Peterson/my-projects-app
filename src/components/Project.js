@@ -5,22 +5,22 @@ import IconButton from '@material-ui/core/IconButton';
 import {FaCheck, FaRegEdit} from 'react-icons/fa';
 import {MdDeleteForever} from 'react-icons/md';
 
-const Project = ({project}) => {
+const Project = ({project, updateProject, completedProject, deleteProject}) => {
     const editHandler = () => {
-        console.log("update works");
+        updateProject(project.id);
       };
     
       const completedHandler = () => {
-        console.log("completed works");
+        completedProject(project.id)
       };
-    
+
       const deleteHandler = () => {
-        console.log("delete works");
-      };
+        deleteProject(project.id)
+      }
 
     return (
         <div>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" style={{color: project.completed ? '#888' : null, textDecoration: project.completed ? 'line-through' : null}} >
           <div className="project-container">{project.task}</div>
           <Tooltip title="Edit">
             <IconButton onClick={editHandler}>
@@ -40,7 +40,6 @@ const Project = ({project}) => {
         </Button>
         </div>
     );
-
 }
 
 export default Project;

@@ -1,6 +1,9 @@
 import React from 'react';
 import TextField from "@material-ui/core/TextField";
 import {v4} from 'uuid';
+import IconButton from '@material-ui/core/IconButton';
+import {AiFillFileAdd} from 'react-icons/ai';
+import Grid from '@material-ui/core/Grid';
 
 const Form = ({inputProject, setInputProject, projects, setProjects}) => {
 
@@ -13,10 +16,10 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
         setProjects([...projects, {task: inputProject, completed: false, id: v4()}]);
         setInputProject('');
     };
-    console.log(setInputProject);
+   
     return (
+        <Grid  direction='row' spacing={3}>
         <form noValidate autoComplete="off">
-        
         <TextField
             label="Add Project"
             variant="filled"
@@ -25,8 +28,10 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
             value={inputProject}
             onChange={handleInputProject}
             />
-        <button type='submit' onClick={submitProjectInput} >Add</button>
+        <IconButton type='submit' onClick={submitProjectInput} ><AiFillFileAdd style={{color: 'white'}} /></IconButton>
+        
         </form>
+        </Grid>
     );
 }
 
