@@ -22,6 +22,9 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
 
     const unfinishedProjects = projects.filter(item => item.completed === false).length;
     const finishedProjects = projects.filter(item => item.completed === true).length;
+    
+    const unfinishedProjectsPlural = () => {if (unfinishedProjects !== 1) return 's'};    
+    const finishedProjectsPlural = () => {if (finishedProjects !== 1) return 's'};
 
     return (
         <>
@@ -42,7 +45,7 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
             <div style={{color: 'white', marginBottom: '50px', float: 'right', fontSize: '.5rem'}}>{30 - inputProject.length} characters remaining</div>
             </form>
             <div style={{color: 'white', float: 'left', fontSize: '.8rem', marginTop: '45px'}} >
-                {unfinishedProjects} unfinished projects / {finishedProjects} finished projects
+                {unfinishedProjects} unfinished project{unfinishedProjectsPlural()} / {finishedProjects} finished project{finishedProjectsPlural()}
             </div>
         </>
     );

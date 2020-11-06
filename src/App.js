@@ -47,7 +47,6 @@ function App() {
             />
           <ProjectList 
             projects={projects}
-            // updateProject={updateProject}
             completedProject={completedProject}
             deleteProject={deleteProject}
             />

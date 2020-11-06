@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {FaCheck} from 'react-icons/fa';
 import {MdDeleteForever} from 'react-icons/md';
 
-const Project = ({project, updateProject, completedProject, deleteProject}) => {
+const Project = ({project, completedProject, deleteProject}) => {
 
       const completedHandler = () => {
         completedProject(project.id)
