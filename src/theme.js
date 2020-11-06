@@ -32,7 +32,8 @@ theme.props = {
         edge: 'end'
     },
     MuiTextField: {
-        autoFocus: true
+        autoFocus: true,
+        maxLength: 20
     }
 };
 
@@ -78,7 +79,6 @@ theme.overrides = {
     MuiTextField: {
         root: {
             maxWidth: '1000px',
-            marginBottom: '50px',
             fontSize: '3rem',
         }
     },

@@ -22,7 +22,8 @@ function App() {
   }, [projects]);
 
   const updateProject = (id) => {
-    console.log('update project CONNECTED')
+    console.log('update project CONNECTED');
+    
   }
 
   const completedProject = (id) => {
