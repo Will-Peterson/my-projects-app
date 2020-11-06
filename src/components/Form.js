@@ -2,7 +2,6 @@ import React from 'react';
 import TextField from "@material-ui/core/TextField";
 import {v4} from 'uuid';
 import IconButton from '@material-ui/core/IconButton';
-import {AiFillFileAdd} from 'react-icons/ai';
 
 const Form = ({inputProject, setInputProject, projects, setProjects}) => {
 
@@ -20,24 +19,32 @@ const Form = ({inputProject, setInputProject, projects, setProjects}) => {
             return null;
         } 
     };
-   
+
+    const unfinishedProjects = projects.filter(item => item.completed === false).length;
+    const finishedProjects = projects.filter(item => item.completed === true).length;
+
     return (
-        <form noValidate autoComplete="off" onSubmit={submitProjectInput}>
-        <TextField
-            inputProps={{maxLength: 20}}
-            label="Add Project"
-            variant="filled"
-            color="primary"
-            type='text'
-            value={inputProject}
-            onChange={handleInputProject}
-            />
-        <IconButton type='submit' onClick={submitProjectInput} >
-            <AiFillFileAdd style={{color: 'white'}} />
-        </IconButton>
-        <br/>
-        <div style={{color: 'white', marginBottom: '50px', float: 'right', fontSize: '.5rem'}}>{20 - inputProject.length} characters remaining</div>
-        </form>
+        <>
+            <form noValidate autoComplete="off" onSubmit={submitProjectInput}>
+            <TextField
+                inputProps={{maxLength: 30}}
+                label="Add Project"
+                variant="filled"
+                color="primary"
+                type='text'
+                value={inputProject}
+                onChange={handleInputProject}
+                />
+            <IconButton aria-label='delete' type='submit' onClick={submitProjectInput} >
+                <span style={{color: 'white', fontWeight: 'bold'}}>+</span>
+            </IconButton>
+            <br/>
+            <div style={{color: 'white', marginBottom: '50px', float: 'right', fontSize: '.5rem'}}>{30 - inputProject.length} characters remaining</div>
+            </form>
+            <div style={{color: 'white', float: 'left', fontSize: '.8rem', marginTop: '45px'}} >
+                {unfinishedProjects} unfinished projects / {finishedProjects} finished projects
+            </div>
+        </>
     );
 }
 

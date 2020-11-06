@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
-import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./theme";
 import ProjectList from './components/ProjectList';
 import Form from './components/Form';
+import theme from "./theme";
+import { ThemeProvider } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 
 function App() {
@@ -20,11 +20,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('wp-mpa1-ekt', JSON.stringify(projects));
   }, [projects]);
-
-  const updateProject = (id) => {
-    console.log('update project CONNECTED');
-    
-  }
 
   const completedProject = (id) => {
     setProjects(projects.map((project) => {
@@ -52,7 +47,7 @@ function App() {
             />
           <ProjectList 
             projects={projects}
-            updateProject={updateProject}
+            // updateProject={updateProject}
             completedProject={completedProject}
             deleteProject={deleteProject}
             />
