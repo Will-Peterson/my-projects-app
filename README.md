@@ -1,10 +1,10 @@
 # My Projects App
-This is a simple projects list app similar to a todo app. You can add, remove, and check completed the projects that are listed. 
+This is a projects list app similar to a todo app. Listed projects can be added, removed, or marked completed. 
 
 ## Built With
 
-* [React](reactjs.org)
-* [Material UI](material-ui.com)
+* [React](https://reactjs.org)
+* [Material UI](https://material-ui.com)
 
 See it live [here](https://will-peterson.github.io/my-projects-app/)
 
